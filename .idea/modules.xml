@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Exchange.iml" filepath="$PROJECT_DIR$/.idea/Exchange.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Exchange/Exchange.iml" filepath="$PROJECT_DIR$/Exchange/Exchange.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/XcHANGE.iml" filepath="$PROJECT_DIR$/.idea/XcHANGE.iml" />
     </modules>
   </component>
 </project>

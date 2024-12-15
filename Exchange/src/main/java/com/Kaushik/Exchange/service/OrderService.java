@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 
 @Service
 public class OrderService {
@@ -18,9 +19,9 @@ public class OrderService {
         System.out.println("OrderService initialized.");
     }
 
-    public MessageFromOrderbook createOrder(String market, String price, String quantity, String side, String userId) {
+    public CompletableFuture<MessageFromOrderbook> createOrder(String market, String price, String quantity, String side, String userId) {
         System.out.println("Creating order: market=" + market + ", price=" + price + ", quantity=" + quantity + ", side=" + side + ", userId=" + userId);
-        MessageToEngine message = new MessageToEngine();
+        MessageToEngine message = new MessageToEngine("",new Object());
         message.setType("CREATE_ORDER");
         message.setData(Map.of(
                 "market", market,
@@ -31,9 +32,9 @@ public class OrderService {
         ));
         return redisManager.sendAndAwait(message);
     }
-    public MessageFromOrderbook cancelOrder(String orderId, String market) {
+    public CompletableFuture<MessageFromOrderbook> cancelOrder(String orderId, String market) {
         System.out.println("Cancelling order: orderId=" + orderId + ", market=" + market);
-        MessageToEngine message = new MessageToEngine();
+        MessageToEngine message = new MessageToEngine("",new Object());
         message.setType("CANCEL_ORDER");
         message.setData(Map.of(
                 "orderId", orderId,
@@ -42,9 +43,9 @@ public class OrderService {
         return redisManager.sendAndAwait(message);
     }
 
-    public MessageFromOrderbook getOpenOrders(String userId, String market) {
+    public CompletableFuture<MessageFromOrderbook> getOpenOrders(String userId, String market) {
         System.out.println("Fetching open orders: userId=" + userId + ", market=" + market);
-        MessageToEngine message = new MessageToEngine();
+        MessageToEngine message = new MessageToEngine("",new Object());
         message.setType("GET_OPEN_ORDERS");
         message.setData(Map.of(
                 "userId", userId,

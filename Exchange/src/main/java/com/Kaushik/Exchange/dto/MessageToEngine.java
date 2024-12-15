@@ -6,13 +6,12 @@ import lombok.Builder;
 import lombok.Data;
 
 @Data
-@AllArgsConstructor
 @Builder
 public class MessageToEngine {
     private String type;
     private Object data;
 
-    public MessageToEngine() {
+    public MessageToEngine(String type, Object data) {
         this.type = type;
         this.data = data;
     }
