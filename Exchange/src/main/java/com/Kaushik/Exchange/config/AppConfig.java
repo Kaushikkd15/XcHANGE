@@ -15,9 +15,9 @@ public class AppConfig {
         public DataSource dataSource() {
             DriverManagerDataSource dataSource = new DriverManagerDataSource();
             dataSource.setDriverClassName("org.postgresql.Driver"); // or com.mysql.cj.jdbc.Driver for MySQL
-            dataSource.setUrl("jdbc:postgresql://localhost:5432/postgres");
-            dataSource.setUsername("postgres");
-            dataSource.setPassword("Kaushikkd");
+            dataSource.setUrl("");
+            dataSource.setUsername("");
+            dataSource.setPassword("");
             return dataSource;
         }
 
